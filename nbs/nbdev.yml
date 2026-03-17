@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "cjm-fasthtml-sortable-queue"
+  site-url: "https://cj-mills.github.io/cjm-fasthtml-sortable-queue"
+  description: "A reusable FastHTML component for Sortable.js-enhanced ordered queue panels with drag-and-drop reorder, keyboard navigation, and HTMX-powered mutations."
+  repo-branch: main
+  repo-url: "https://github.com/cj-mills/cjm-fasthtml-sortable-queue"
