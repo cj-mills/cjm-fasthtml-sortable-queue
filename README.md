@@ -36,20 +36,20 @@ graph LR
     router[router<br/>router]
     sortable_js[sortable_js<br/>sortable_js]
 
-    handlers --> models
     handlers --> config
-    handlers --> rendering
+    handlers --> models
     handlers --> html_ids
+    handlers --> rendering
     keyboard --> config
-    keyboard --> models
     keyboard --> html_ids
+    keyboard --> models
     rendering --> config
-    rendering --> html_ids
     rendering --> models
+    rendering --> html_ids
+    router --> html_ids
     router --> config
     router --> handlers
     router --> models
-    router --> html_ids
 ```
 
 *14 cross-module dependencies detected*
@@ -289,7 +289,7 @@ def create_queue_keyboard_system(
     config: SortableQueueConfig,  # Queue configuration
     ids: SortableQueueHtmlIds,  # HTML ID generators
     urls: SortableQueueUrls,  # URL endpoints for HTMX actions
-    zone_focus_classes: tuple = (),  # CSS classes when queue zone is active
+    zone_focus_classes: tuple = (str(ring(0))),  # CSS classes when queue zone is active
     item_focus_classes: Optional[tuple] = None,  # CSS classes on focused item (default: bg-base-300)
     data_attributes: tuple = (),  # Data attributes to extract (e.g., ("record-id", "provider-id"))
     on_focus_change: Optional[str] = None,  # JS callback on item focus change

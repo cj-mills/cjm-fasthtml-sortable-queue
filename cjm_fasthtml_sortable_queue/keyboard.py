@@ -14,6 +14,7 @@ from cjm_fasthtml_keyboard_navigation.core.actions import KeyAction
 from cjm_fasthtml_keyboard_navigation.core.manager import ZoneManager
 from cjm_fasthtml_keyboard_navigation.components.system import render_keyboard_system, KeyboardSystem
 
+from cjm_fasthtml_tailwind.utilities.effects import ring
 from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
 
 from .config import SortableQueueConfig
@@ -28,7 +29,7 @@ def create_queue_keyboard_system(
     config: SortableQueueConfig,  # Queue configuration
     ids: SortableQueueHtmlIds,  # HTML ID generators
     urls: SortableQueueUrls,  # URL endpoints for HTMX actions
-    zone_focus_classes: tuple = (),  # CSS classes when queue zone is active
+    zone_focus_classes: tuple = (str(ring(0))),  # CSS classes when queue zone is active
     item_focus_classes: Optional[tuple] = None,  # CSS classes on focused item (default: bg-base-300)
     data_attributes: tuple = (),  # Data attributes to extract (e.g., ("record-id", "provider-id"))
     on_focus_change: Optional[str] = None,  # JS callback on item focus change
