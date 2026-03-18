@@ -176,7 +176,7 @@ def render_sortable_queue(
         )
     else:
         empty_fn = render_empty or _render_default_empty
-        body = Div(empty_fn(), id=ids.empty, cls=combine_classes(grow(), flex_display))
+        body = Div(empty_fn(), id=ids.empty, cls=combine_classes(grow()))
     
     # Footer (optional)
     footer = render_footer(queue_items) if render_footer else None

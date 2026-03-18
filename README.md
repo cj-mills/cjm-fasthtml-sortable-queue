@@ -43,12 +43,12 @@ graph LR
     keyboard --> models
     keyboard --> html_ids
     keyboard --> config
-    rendering --> html_ids
-    rendering --> models
     rendering --> config
+    rendering --> models
+    rendering --> html_ids
     router --> models
-    router --> handlers
     router --> html_ids
+    router --> handlers
     router --> config
 ```
 
