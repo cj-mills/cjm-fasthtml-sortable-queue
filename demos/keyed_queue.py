@@ -133,7 +133,7 @@ def setup():
         ids=ids,
         urls=urls,
         zone_focus_classes=(str(ring(1)), str(ring_dui.secondary)),
-        item_focus_classes=(str(bg_dui.secondary.opacity(10)), str(ring(1)), str(ring_dui.secondary)),
+        item_focus_classes=None,
         data_attributes=("key",),
         show_hints=True,
     )

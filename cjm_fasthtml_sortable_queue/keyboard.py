@@ -14,9 +14,14 @@ from cjm_fasthtml_keyboard_navigation.core.actions import KeyAction
 from cjm_fasthtml_keyboard_navigation.core.manager import ZoneManager
 from cjm_fasthtml_keyboard_navigation.components.system import render_keyboard_system, KeyboardSystem
 
+from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+
 from .config import SortableQueueConfig
 from .html_ids import SortableQueueHtmlIds
 from .models import SortableQueueUrls
+
+# Default focused-item styling (matches cjm-fasthtml-virtual-collection convention)
+_DEFAULT_ITEM_FOCUS_CLASSES = (str(bg_dui.base_300),)
 
 # %% ../nbs/keyboard.ipynb #v0x9pvgwlqj
 def create_queue_keyboard_system(
@@ -24,7 +29,7 @@ def create_queue_keyboard_system(
     ids: SortableQueueHtmlIds,  # HTML ID generators
     urls: SortableQueueUrls,  # URL endpoints for HTMX actions
     zone_focus_classes: tuple = (),  # CSS classes when queue zone is active
-    item_focus_classes: tuple = (),  # CSS classes on focused item
+    item_focus_classes: Optional[tuple] = None,  # CSS classes on focused item (default: bg-base-300)
     data_attributes: tuple = (),  # Data attributes to extract (e.g., ("record-id", "provider-id"))
     on_focus_change: Optional[str] = None,  # JS callback on item focus change
     hidden_input_prefix: Optional[str] = None,  # Prefix for hidden state inputs
@@ -43,11 +48,10 @@ def create_queue_keyboard_system(
         id=ids.container,
         item_selector=f"li.{config.item_class}",
         navigation=LinearVertical(),
+        item_focus_classes=item_focus_classes if item_focus_classes is not None else _DEFAULT_ITEM_FOCUS_CLASSES,
     )
     if zone_focus_classes:
         zone_kwargs["zone_focus_classes"] = zone_focus_classes
-    if item_focus_classes:
-        zone_kwargs["item_focus_classes"] = item_focus_classes
     if data_attributes:
         zone_kwargs["data_attributes"] = data_attributes
     if on_focus_change:

@@ -36,20 +36,20 @@ graph LR
     router[router<br/>router]
     sortable_js[sortable_js<br/>sortable_js]
 
-    handlers --> config
     handlers --> models
-    handlers --> html_ids
+    handlers --> config
     handlers --> rendering
+    handlers --> html_ids
     keyboard --> config
-    keyboard --> html_ids
     keyboard --> models
+    keyboard --> html_ids
     rendering --> config
     rendering --> html_ids
     rendering --> models
-    router --> handlers
     router --> config
-    router --> html_ids
+    router --> handlers
     router --> models
+    router --> html_ids
 ```
 
 *14 cross-module dependencies detected*
@@ -290,7 +290,7 @@ def create_queue_keyboard_system(
     ids: SortableQueueHtmlIds,  # HTML ID generators
     urls: SortableQueueUrls,  # URL endpoints for HTMX actions
     zone_focus_classes: tuple = (),  # CSS classes when queue zone is active
-    item_focus_classes: tuple = (),  # CSS classes on focused item
+    item_focus_classes: Optional[tuple] = None,  # CSS classes on focused item (default: bg-base-300)
     data_attributes: tuple = (),  # Data attributes to extract (e.g., ("record-id", "provider-id"))
     on_focus_change: Optional[str] = None,  # JS callback on item focus change
     hidden_input_prefix: Optional[str] = None,  # Prefix for hidden state inputs
@@ -305,6 +305,12 @@ def create_queue_keyboard_system(
     Shift+Arrow reorder. Works standalone or as a child in a hierarchy
     via `coord.setParent(system_id, parent_id)`.
     """
+```
+
+#### Variables
+
+``` python
+_DEFAULT_ITEM_FOCUS_CLASSES
 ```
 
 ### models (`models.ipynb`)

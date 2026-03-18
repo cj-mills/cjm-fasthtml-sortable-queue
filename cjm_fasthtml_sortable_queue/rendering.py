@@ -17,16 +17,15 @@ from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui, bor
 from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
 
 from cjm_fasthtml_tailwind.utilities.spacing import p, m
-from cjm_fasthtml_tailwind.utilities.sizing import w, min_h
+from cjm_fasthtml_tailwind.utilities.sizing import w
 from cjm_fasthtml_tailwind.utilities.typography import (
     font_size, font_weight, text_align, list_style
 )
 from cjm_fasthtml_tailwind.utilities.layout import overflow
 from cjm_fasthtml_tailwind.utilities.borders import border
-from cjm_fasthtml_tailwind.utilities.effects import shadow
 from cjm_fasthtml_tailwind.utilities.interactivity import cursor
 from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import (
-    flex_display, flex_direction, justify, items, grow, shrink
+    flex_display, flex_direction, justify, items, grow
 )
 from cjm_fasthtml_tailwind.core.base import combine_classes
 
@@ -82,8 +81,6 @@ def render_queue_item(
             config.item_class,
             flex_display,
             items.center,
-            m.x(0),
-            m.y(1),
             p(3),
             bg_dui.base_100,
             bg_dui.base_200.hover
@@ -188,14 +185,8 @@ def render_sortable_queue(
         footer,
         id=ids.container,
         cls=combine_classes(
-            w.full,
-            w(64).lg,
-            shrink(0).lg,
-            min_h(48),
             bg_dui.base_100,
             border_radius.box,
-            shadow.lg,
-            border_dui.base_300,
             flex_display,
             flex_direction.col,
             overflow.hidden,
