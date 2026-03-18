@@ -16,6 +16,7 @@ from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colo
 from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui, border_dui
 from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
 
+from cjm_fasthtml_tailwind.utilities.layout import overflow
 from cjm_fasthtml_tailwind.utilities.spacing import p, m
 from cjm_fasthtml_tailwind.utilities.sizing import w
 from cjm_fasthtml_tailwind.utilities.typography import (
@@ -83,7 +84,8 @@ def render_queue_item(
             items.center,
             p(3),
             bg_dui.base_100,
-            bg_dui.base_200.hover
+            bg_dui.base_200.hover,
+            overflow.x.auto
         ),
         data_key=key,
         **(extra_attrs or {})
