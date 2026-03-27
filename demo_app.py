@@ -38,6 +38,8 @@ def main():
     print("Initializing cjm-fasthtml-sortable-queue Demo")
     print("=" * 70)
 
+    APP_ID = "sortq"
+
     app, rt = fast_app(
         pico=False,
         hdrs=[
@@ -48,7 +50,8 @@ def main():
         ],
         title="Sortable Queue Demo",
         htmlkw={'data-theme': 'light'},
-        secret_key="demo-secret-key"
+        session_cookie=f'session_{APP_ID}_',
+        secret_key=f'{APP_ID}-demo-secret',
     )
 
     router = APIRouter(prefix="")
