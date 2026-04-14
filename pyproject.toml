@@ -1,11 +1,30 @@
 [build-system]
-requires = ["setuptools>=64.0,<76.0"]
+requires = ["setuptools>=64"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name="cjm-fasthtml-sortable-queue"
-requires-python=">=3.9"
-dynamic = [ "keywords", "description", "version", "dependencies", "optional-dependencies", "readme", "license", "authors", "classifiers", "entry-points", "scripts", "urls"]
+name = "cjm-fasthtml-sortable-queue"
+dynamic = ["version"]
+description = "A reusable FastHTML component for Sortable.js-enhanced ordered queue panels with drag-and-drop reorder, keyboard navigation, and HTMX-powered mutations."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "Apache-2.0"}
+authors = [{name = "Christian J. Mills", email = "9126128+cj-mills@users.noreply.github.com"}]
+keywords = ['nbdev', 'jupyter', 'notebook', 'python']
+classifiers = ["Natural Language :: English", "Intended Audience :: Developers", "Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only"]
+dependencies = ['python-fasthtml', 'cjm-fasthtml-tailwind', 'cjm-fasthtml-daisyui', 'cjm_fasthtml_lucide_icons', 'cjm-fasthtml-keyboard-navigation']
 
-[tool.uv]
-cache-keys = [{ file = "pyproject.toml" }, { file = "settings.ini" }, { file = "setup.py" }]
+[project.urls]
+Repository = "https://github.com/cj-mills/cjm-fasthtml-sortable-queue"
+Documentation = "https://cj-mills.github.io/cjm-fasthtml-sortable-queue"
+
+[project.entry-points.nbdev]
+cjm_fasthtml_sortable_queue = "cjm_fasthtml_sortable_queue._modidx:d"
+
+[tool.setuptools.dynamic]
+version = {attr = "cjm_fasthtml_sortable_queue.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["cjm_fasthtml_sortable_queue"]
+
+[tool.nbdev]
