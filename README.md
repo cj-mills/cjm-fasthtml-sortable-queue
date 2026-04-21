@@ -36,20 +36,20 @@ graph LR
     router[router<br/>router]
     sortable_js[sortable_js<br/>sortable_js]
 
-    handlers --> models
-    handlers --> html_ids
     handlers --> config
+    handlers --> models
     handlers --> rendering
+    handlers --> html_ids
     keyboard --> models
-    keyboard --> html_ids
     keyboard --> config
+    keyboard --> html_ids
     rendering --> config
-    rendering --> models
     rendering --> html_ids
+    rendering --> models
     router --> models
-    router --> html_ids
     router --> handlers
     router --> config
+    router --> html_ids
 ```
 
 *14 cross-module dependencies detected*

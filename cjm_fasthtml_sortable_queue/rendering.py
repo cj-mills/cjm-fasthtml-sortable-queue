@@ -84,7 +84,7 @@ def render_queue_item(
             items.center,
             p(3),
             bg_dui.base_100,
-            bg_dui.base_200.hover,
+            bg_dui.base_300.hover,
             overflow.x.auto
         ),
         data_key=key,
@@ -187,7 +187,7 @@ def render_sortable_queue(
         footer,
         id=ids.container,
         cls=combine_classes(
-            bg_dui.base_100,
+            bg_dui.base_200,
             border_radius.box,
             flex_display,
             flex_direction.col,
