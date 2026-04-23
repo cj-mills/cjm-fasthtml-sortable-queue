@@ -14,7 +14,6 @@ from fasthtml.common import Div, Span, Button, Ul, Li, P, Hidden
 from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_styles
 from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors, badge_sizes
 from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui, border_dui
-from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
 
 from cjm_fasthtml_tailwind.utilities.layout import overflow
 from cjm_fasthtml_tailwind.utilities.spacing import p, m
@@ -31,6 +30,9 @@ from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import (
 from cjm_fasthtml_tailwind.core.base import combine_classes
 
 from cjm_fasthtml_lucide_icons.factory import lucide_icon
+
+# Design system recipes (V10 panel variants)
+from cjm_fasthtml_design_system.panels import panels
 
 from .config import SortableQueueConfig, get_item_key
 from .html_ids import SortableQueueHtmlIds
@@ -187,8 +189,7 @@ def render_sortable_queue(
         footer,
         id=ids.container,
         cls=combine_classes(
-            bg_dui.base_200,
-            border_radius.box,
+            panels.minimal_container,
             flex_display,
             flex_direction.col,
             overflow.hidden,

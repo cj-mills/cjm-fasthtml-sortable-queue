@@ -38,17 +38,17 @@ graph LR
 
     handlers --> config
     handlers --> models
-    handlers --> rendering
     handlers --> html_ids
+    handlers --> rendering
     keyboard --> models
     keyboard --> config
     keyboard --> html_ids
     rendering --> config
-    rendering --> html_ids
     rendering --> models
+    rendering --> html_ids
     router --> models
-    router --> handlers
     router --> config
+    router --> handlers
     router --> html_ids
 ```
 
