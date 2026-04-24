@@ -31,8 +31,9 @@ from cjm_fasthtml_tailwind.core.base import combine_classes
 
 from cjm_fasthtml_lucide_icons.factory import lucide_icon
 
-# Design system recipes (V10 panel variants)
+# Design system recipes (V10 panel variants, V11 icon-size roles)
 from cjm_fasthtml_design_system.panels import panels
+from cjm_fasthtml_design_system.icons import icons
 
 from .config import SortableQueueConfig, get_item_key
 from .html_ids import SortableQueueHtmlIds
@@ -57,7 +58,7 @@ def render_queue_item(
         
         # Drag handle
         Span(
-            lucide_icon("grip-vertical", size=4, cls=str(text_dui.base_content.opacity(40))),
+            lucide_icon("grip-vertical", size=icons.icon_button, cls=str(text_dui.base_content.opacity(40))),
             cls=combine_classes(config.handle_class, cursor.move, p.r(2))
         ),
         
@@ -69,7 +70,7 @@ def render_queue_item(
         
         # Remove button
         Button(
-            lucide_icon("x", size=4, cls=str(text_dui.base_content.opacity(60))),
+            lucide_icon("x", size=icons.icon_button, cls=str(text_dui.base_content.opacity(60))),
             cls=combine_classes(btn, btn_styles.ghost, btn_sizes.xs, m.l(1)),
             hx_post=urls.remove,
             hx_vals=json.dumps({"key": key}),
