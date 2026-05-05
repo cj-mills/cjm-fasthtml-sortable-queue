@@ -11,7 +11,6 @@ from typing import Any, Callable, List, Optional
 
 from fasthtml.common import Div, Span, Button, Ul, Li, P, Hidden
 
-from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_styles
 from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors, badge_sizes
 from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui, border_dui
 
@@ -31,7 +30,8 @@ from cjm_fasthtml_tailwind.core.base import combine_classes
 
 from cjm_fasthtml_lucide_icons.factory import lucide_icon
 
-# Design system recipes (V10 panel variants, V11 icon-size roles)
+# Design system recipes (V1 button roles, V10 panel variants, V11 icon-size roles)
+from cjm_fasthtml_design_system.buttons import buttons
 from cjm_fasthtml_design_system.panels import panels
 from cjm_fasthtml_design_system.icons import icons
 
@@ -71,7 +71,7 @@ def render_queue_item(
         # Remove button
         Button(
             lucide_icon("x", size=icons.icon_button, cls=str(text_dui.base_content.opacity(60))),
-            cls=combine_classes(btn, btn_styles.ghost, btn_sizes.xs, m.l(1)),
+            cls=combine_classes(buttons.item_remove, m.l(1)),
             hx_post=urls.remove,
             hx_vals=json.dumps({"key": key}),
             hx_target=ids.as_selector(ids.container),
@@ -132,7 +132,7 @@ def render_sortable_queue(
     elif has_items:
         header_actions = Button(
             "Clear",
-            cls=combine_classes(btn, btn_styles.ghost, btn_sizes.xs),
+            cls=buttons.soft_utility,
             hx_post=urls.clear,
             hx_target=ids.as_selector(ids.container),
             hx_swap="outerHTML"
