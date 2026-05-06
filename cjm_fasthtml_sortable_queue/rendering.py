@@ -30,10 +30,11 @@ from cjm_fasthtml_tailwind.core.base import combine_classes
 
 from cjm_fasthtml_lucide_icons.factory import lucide_icon
 
-# Design system recipes (V1 button roles, V10 panel variants, V11 icon-size roles)
+# Design system recipes (V1 button roles, V10 panel variants, V11 icon-size roles, V13 text tiers)
 from cjm_fasthtml_design_system.buttons import buttons
 from cjm_fasthtml_design_system.panels import panels
 from cjm_fasthtml_design_system.icons import icons
+from cjm_fasthtml_design_system.text_tiers import text_tiers
 
 from .config import SortableQueueConfig, get_item_key
 from .html_ids import SortableQueueHtmlIds
@@ -58,7 +59,7 @@ def render_queue_item(
         
         # Drag handle
         Span(
-            lucide_icon("grip-vertical", size=icons.icon_button, cls=str(text_dui.base_content.opacity(40))),
+            lucide_icon("grip-vertical", size=icons.icon_button, cls=text_tiers.subtle),
             cls=combine_classes(config.handle_class, cursor.move, p.r(2))
         ),
         
@@ -70,7 +71,7 @@ def render_queue_item(
         
         # Remove button
         Button(
-            lucide_icon("x", size=icons.icon_button, cls=str(text_dui.base_content.opacity(60))),
+            lucide_icon("x", size=icons.icon_button, cls=text_tiers.tertiary),
             cls=combine_classes(buttons.item_remove, m.l(1)),
             hx_post=urls.remove,
             hx_vals=json.dumps({"key": key}),
@@ -100,11 +101,11 @@ def _render_default_empty() -> Any:  # Empty state element
     return Div(
         P(
             "No items selected",
-            cls=combine_classes(text_dui.base_content.opacity(40), text_align.center, font_size.sm)
+            cls=combine_classes(text_tiers.muted, text_align.center, font_size.sm)
         ),
         P(
             "Add items from the browser",
-            cls=combine_classes(text_dui.base_content.opacity(30), text_align.center, font_size.xs)
+            cls=combine_classes(text_tiers.subtle, text_align.center, font_size.xs)
         ),
         cls=combine_classes(p(8), flex_display, flex_direction.col, justify.center, items.center, grow())
     )
