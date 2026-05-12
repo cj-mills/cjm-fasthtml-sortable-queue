@@ -36,20 +36,20 @@ graph LR
     router[router<br/>router]
     sortable_js[sortable_js<br/>sortable_js]
 
-    handlers --> config
-    handlers --> models
-    handlers --> html_ids
     handlers --> rendering
-    keyboard --> models
+    handlers --> config
+    handlers --> html_ids
+    handlers --> models
     keyboard --> config
     keyboard --> html_ids
+    keyboard --> models
     rendering --> config
     rendering --> models
     rendering --> html_ids
-    router --> models
     router --> config
     router --> handlers
     router --> html_ids
+    router --> models
 ```
 
 *14 cross-module dependencies detected*
@@ -295,6 +295,7 @@ def create_queue_keyboard_system(
     on_focus_change: Optional[str] = None,  # JS callback on item focus change
     hidden_input_prefix: Optional[str] = None,  # Prefix for hidden state inputs
     system_id: Optional[str] = None,  # Keyboard system ID (auto-generated from ids.system_id if not set)
+    manager_label: Optional[str] = None,  # Human-readable label for the underlying ZoneManager (used by render_keyboard_hints_modal section header when this system is rendered as a child)
     show_hints: bool = False,  # Show keyboard hints UI
 ) -> KeyboardSystem:  # Complete rendered keyboard system
     """
@@ -304,6 +305,12 @@ def create_queue_keyboard_system(
     navigation) and built-in actions for Delete/Backspace remove and
     Shift+Arrow reorder. Works standalone or as a child in a hierarchy
     via `coord.setParent(system_id, parent_id)`.
+    
+    Pass `manager_label` (e.g., "Selection Queue") so that when this system is
+    rendered as a `child_managers` entry in `render_keyboard_hints_modal`, the
+    modal's section header reads as the label instead of falling back to the
+    technical system_id. Access the underlying ZoneManager via the returned
+    `KeyboardSystem.manager` field for the child_managers handoff.
     """
 ```
 
