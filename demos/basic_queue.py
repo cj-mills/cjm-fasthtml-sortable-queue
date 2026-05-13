@@ -8,7 +8,8 @@ Demonstrates:
 - on_mutate callback for OOB item count update
 """
 
-from fasthtml.common import Div, Span, P, APIRouter
+from fasthtml.common import Div, Span, P
+from cjm_fasthtml_app_core.core.routing import APIRouter
 
 from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_display, grow, justify
 from cjm_fasthtml_tailwind.utilities.spacing import m, p as pad

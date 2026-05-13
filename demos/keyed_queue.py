@@ -9,7 +9,8 @@ Demonstrates:
 - data_attributes for extracting item identity from focused row
 """
 
-from fasthtml.common import Div, Span, P, Button, APIRouter
+from fasthtml.common import Div, Span, P, Button
+from cjm_fasthtml_app_core.core.routing import APIRouter
 
 from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import (
     flex_display, grow, justify, items as items_align

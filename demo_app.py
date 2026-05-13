@@ -12,7 +12,8 @@ DEMO_PORT = 5035
 
 def main():
     """Initialize sortable queue demos and start the server."""
-    from fasthtml.common import fast_app, Div, H1, P, A, APIRouter
+    from fasthtml.common import fast_app, Div, H1, P, A
+    from cjm_fasthtml_app_core.core.routing import APIRouter
 
     from cjm_fasthtml_daisyui.core.resources import get_daisyui_headers
     from cjm_fasthtml_daisyui.core.testing import create_theme_persistence_script

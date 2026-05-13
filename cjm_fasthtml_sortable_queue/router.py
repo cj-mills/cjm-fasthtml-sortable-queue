@@ -8,7 +8,7 @@ __all__ = ['init_sortable_queue_router']
 # %% ../nbs/router.ipynb #tlbk0bripsa
 from typing import Any, Callable, List, Optional, Tuple
 
-from fasthtml.common import APIRouter
+from cjm_fasthtml_app_core.core.routing import APIRouter
 
 from .config import SortableQueueConfig
 from .html_ids import SortableQueueHtmlIds
